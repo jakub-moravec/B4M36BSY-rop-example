@@ -5,8 +5,13 @@
     break *0x08048456
     run $(python -c 'print "A"*268')
     x/200xb buffer
+    >> 0xbffff230
     info break
     del <brakpoint number>
+
+**Find adress to be replaced**
+
+    run $(python -c 'print "A"*270')
 
 **Buffer overflow**
 
