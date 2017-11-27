@@ -1,18 +1,16 @@
-#undef _FORTIFY_SOURCE
 #include <stdio.h>
-#include <stdlib.h>
-#include <iostream>
-#include <unistd.h>
+#include <string.h>
 
-using namespace std;
+void vulnerable(char *argv) {
+    char buffer[256];
+    strcpy(buffer, argv);
 
-void vulnerable_function() {
-    char buf[128];
-    read(STDIN_FILENO, buf,256);
+    printf("%s\n",buffer);
 }
 
 int main(int argc, char** argv) {
-    cout << system ("/bin/sh");
-    vulnerable_function();
-    write(STDOUT_FILENO, "Hello, World\n", 13);
+    vulnerable(argv[1]);
+
+
+    return 0;
 }
