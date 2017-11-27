@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jakub/B4M36BSY-rop-example/main.cpp
+stdio.h
+-
+stdlib.h
+-
+iostream
+-
+unistd.h
+-
+string.h
+-
+

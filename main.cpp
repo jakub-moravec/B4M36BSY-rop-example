@@ -3,16 +3,17 @@
 #include <stdlib.h>
 #include <iostream>
 #include <unistd.h>
+#include <string.h>
 
 using namespace std;
 
-void vulnerable_function() {
-    char buf[128];
-    read(STDIN_FILENO, buf,256);
+void vulnerable_function(char* string) {
+    char buf[16];
+    strcpy(buf, string);
+    return;
 }
 
 int main(int argc, char** argv) {
-    cout << system ("/bin/sh");
-    vulnerable_function();
-    write(STDOUT_FILENO, "Hello, World\n", 13);
+    vulnerable_function(argv[1]);
+    return 0;
 }
